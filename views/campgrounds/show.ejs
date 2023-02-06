@@ -1,25 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show</title>
-</head>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mb-3">
+            <img class="card-img-top" src="<%= campgroundInfo.image %>" alt="Stock photo">
+            <div class="card-body">
+                <h5 class="card-title"><%=campgroundInfo.title%></h5>
+                <p class="card-text"> <%= campgroundInfo.description %> </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted"><%=campgroundInfo.location%></li>
+                <li class="list-group-item"><%=campgroundInfo.price%> € per night</li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/campgrounds/<%=campgroundInfo._id%>/edit" id="edit">Edit</a>
+                <form class="d-inline" action="/campgrounds/<%=campgroundInfo._id%>?_method=DELETE" method="post">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <span class="card-footer text-muted">
+                <p>2 days ago</p>
+            </span>
+        </div>
+    </div>
+</div>
+<footer class="card-footer text-muted">
+    <a href="/campgrounds">Back to all campgrounds</a>
+</footer>
 
-<body>
-    <h1><%=campgroundInfo.title%></h1>
-    <h2><%=campgroundInfo.location%></h2>
-    <a href="/campgrounds/<%=campgroundInfo._id%>/edit">Edit</a>
-    <p>
-    <form action="/campgrounds/<%=campgroundInfo._id%>?_method=DELETE" method="post">
-        <button>Delete</button>
-    </form>
-    </p>
-    <footer>
-        <a href="/campgrounds">Back to all campgrounds</a>
-    </footer>
-</body>
-
-</html>
+<%- include('../partials/footer') %>

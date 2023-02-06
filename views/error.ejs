@@ -1,0 +1,13 @@
+<%- include('partials/head') %>
+
+<div class="alert alert-danger" role="alert">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h4 class="alert-heading">An error has occured!</h4>
+            <h6><%=err.message%></h6>
+            <p><%=err.stack%></p>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
